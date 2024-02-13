@@ -67,19 +67,19 @@ public class InteractPoint : MonoBehaviour
         }
         else if (_InteractNow && Input.GetButtonUp("Fire1"))
         {
-            ResetIneraction();
+            ResetIneraction(false);
         }
         else if (_InteractNow && Input.GetButtonUp("Fire2") && interactableObject is Movable)
         {
-            ResetIneraction();
+            ResetIneraction(true);
         }
     }
 
-    private void ResetIneraction()
+    private void ResetIneraction(bool throwObject)
     {
         interactableObject.StopInteract();
 
-        if (interactableObject is Movable)
+        if (throwObject)
             interactableObject.GetComponent<Movable>().Throw();
 
         _InteractNow = false;

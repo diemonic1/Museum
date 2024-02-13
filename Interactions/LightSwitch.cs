@@ -29,11 +29,13 @@ public class LightSwitch : InteractableObject
             FindObjectOfType<Picture>().ResetPosition();
             FindObjectOfType<TicTacToeManager>().ResetGame();
             FindObjectOfType<Basket>().SetZero();
+            FindObjectOfType<Fire>().TurnOn();
 
-            SecretPanel sp = FindObjectOfType<SecretPanel>();
-            sp.gameObject.GetComponent<BoxCollider>().enabled = true;
-            sp.enabled = true;
-            sp.ResetPanel();
+            SecretPanel secretPanel = FindObjectOfType<SecretPanel>();
+            secretPanel.gameObject.GetComponent<BoxCollider>().enabled = true;
+            secretPanel.enabled = true;
+            secretPanel.ResetPanel();
+
             player.light = true;
             _darknessUI.SetActive(true);
         }

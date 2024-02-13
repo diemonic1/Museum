@@ -13,4 +13,9 @@ public class Fire : InteractableObject
     {
         return lightBase.activeSelf;
     }
+
+    public void TurnOn()
+    {
+        lightBase.SetActive(true);
+    }
 }
